@@ -1,65 +1,101 @@
 import java.util.*;
 
-class shape
+abstract class Shape
 {
 	int a;
+	Shape()
+	{
+		a = 1;
+	}
+	
+	Shape(int x)
+	{
+		a = x;
+	}
+	
+	abstract void calc();
+}
+
+class Rectangle extends Shape
+{
 	int b;
-	void printarea()	
-	{}
-}
-
-class triangle extends shape
-{	
-	Scanner s = new Scanner(System.in);
-	double area;
-	void printarea()
+	Rectangle()
 	{
-	System.out.print("Enter the base and height  ");
-	a = s.nextInt();
-	b = s.nextInt();
-	area=0.5*a*b;
-	System.out.println("Area of triangle : "+area);
+		b = 1;
+	}
+	
+	Rectangle(int x, int y)
+	{
+		a = x;
+		b = y;
+	}
+	void calc()
+	{
+		System.out.println(a*b);
+	}
+}
+	
+class Triangle extends Shape
+{
+	int b;
+	Triangle()
+	{
+		b = 1;
+	}
+	
+	Triangle(int x, int y)
+	{
+		a = x;
+		b = y;
+	}
+	void calc()
+	{
+		System.out.println(0.5*a*b);
 	}
 }
 
-class rectangle extends shape
+class Circle extends Shape
 {
-	Scanner s = new Scanner(System.in);
-	double area;
-	void printarea()
+	Circle(int x)
 	{
-	System.out.print("Enter the length and breadth ");
-	a = s.nextInt();
-	b = s.nextInt();
-	area=a*b;
-	System.out.println("Area of rectangle: "+area);
+		a = x;
+	}
+	void calc()
+	{
+		System.out.println(3.14*a*a);
+	}
+}	
+class abs
+{
+	public static void main(String arg[])
+	{
+		int a;
+		int b;
+		System.out.println("Enter 1: Rectangle, 2: Circle, 3: Triangle");
+		Scanner scan = new Scanner(System.in);
+		int x = scan.nextInt();
+		switch(x)
+		{
+			case 1: 
+				System.out.println("Enter Values for Rectangle");
+				a = scan.nextInt();
+				b = scan.nextInt();
+				Rectangle r = new Rectangle(a, b);
+				r.calc();
+				break;
+			case 2:
+				System.out.println("Enter Values for Circle");
+				a = scan.nextInt();
+				Circle c = new Circle(a);
+				c.calc();
+				break;
+			case 3:
+				System.out.println("Enter Values for Triangle");
+				a = scan.nextInt();
+				b = scan.nextInt();
+				Triangle t = new Triangle(a, b);
+				t.calc();
+				break;
+		}
 	}
 }
-
-
-class  circle extends shape
-{
-	Scanner s = new Scanner(System.in);
-	double area;
-	void printarea()
-	{
-	System.out.print("Enter the radius ");
-	a = s.nextInt();
-	area=3.14*a*a;
-	System.out.println("Area of circle: "+area);
-	}
-}
-
-
-class main1
-{
-public static void main(String a[])
-{
-	rectangle r=new rectangle();
-	r.printarea();
-	triangle t = new triangle();
-	t.printarea();
-	circle c = new circle();
-	c.printarea();
-}
-}		
