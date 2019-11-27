@@ -12,7 +12,6 @@ public class Internal
 			cie_marks[i] = vs.nextDouble();
 	}
 }
-Signed in as shreyas-bot
 
 import cie.*;
 
